@@ -60,7 +60,7 @@ detect_termux() {
 
     # Check architecture
     local arch=$(uname -m)
-    if [[ "$arch" = "aarch64" ]]; then
+    if [[ "$arch" = "x86_64" ]]; then
         print_status "ok" "Architecture: $arch"
     else
         print_status "error" "Unsupported architecture: $arch (requires aarch64)"
