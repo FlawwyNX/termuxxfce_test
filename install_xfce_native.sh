@@ -684,16 +684,16 @@ gpu_check() {
     gpu_vulkan=$(getprop ro.hardware.vulkan)
 
     # Combine unique GPU information
-    detected_gpu="$(echo -e "$gpu_egl\n$gpu_vulkan" | sort -u | tr '\n' ' ' | sed 's/ $//')"
+    #detected_gpu="$(echo -e "$gpu_egl\n$gpu_vulkan" | sort -u | tr '\n' ' ' | sed 's/ $//')"
 
-    if echo "$detected_gpu" | grep -iq "adreno"; then
+    #if echo "$detected_gpu" | grep -iq "adreno"; then
         echo "GPU detected: $detected_gpu"
         MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.3COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 LIBGL_DRI3_DISABLE=1 virgl_test_server_android & > /dev/null 2>&1
-    elif echo "$detected_gpu" | grep -iq "mali"; then
+    #elif echo "$detected_gpu" | grep -iq "mali"; then
         echo "GPU detected: $detected_gpu"
         MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.3COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 LIBGL_DRI3_DISABLE=1 virgl_test_server_android --angle-gl & > /dev/null 2>&1
-    else
-        echo "Unknown GPU type detected: $detected_gpu"
+    #else
+        #echo "Unknown GPU type detected: $detected_gpu"
         exit 1
     fi
 }
