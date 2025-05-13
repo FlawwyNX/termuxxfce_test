@@ -678,10 +678,10 @@ am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity > /dev/null 2>&1
 sleep 1
 
 # Function to check the GPU type
-gpu_check() {
+#gpu_check() {
     # Attempt to detect GPU using getprop
-    gpu_egl=$(getprop ro.hardware.egl)
-    gpu_vulkan=$(getprop ro.hardware.vulkan)
+    #gpu_egl=$(getprop ro.hardware.egl)
+    #gpu_vulkan=$(getprop ro.hardware.vulkan)
 
     # Combine unique GPU information
     #detected_gpu="$(echo -e "$gpu_egl\n$gpu_vulkan" | sort -u | tr '\n' ' ' | sed 's/ $//')"
@@ -841,8 +841,8 @@ pd login debian --shared-tmp -- env DISPLAY=:0 rm /etc/localtime
 pd login debian --shared-tmp -- env DISPLAY=:0 cp /usr/share/zoneinfo/$timezone /etc/localtime
 
 # Setup Hardware Acceleration in proot
-pd login debian --shared-tmp -- env DISPLAY=:0 wget https://github.com/phoenixbyrd/Termux_XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
-pd login debian --shared-tmp -- env DISPLAY=:0 sudo apt install -y ./mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
+#pd login debian --shared-tmp -- env DISPLAY=:0 wget https://github.com/phoenixbyrd/Termux_XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
+#pd login debian --shared-tmp -- env DISPLAY=:0 sudo apt install -y ./mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 
 mkdir -p $PREFIX/var/lib/proot-distro/installed-rootfs/debian/home/$username/.config/
 
